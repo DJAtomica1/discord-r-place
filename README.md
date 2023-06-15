@@ -7,5 +7,5 @@ you will have to add the code as a cog file to your bot
 you may also delete some unnessecary functions
 
 
-# demo video/ tutorial on using it
-https://cdn.discordapp.com/attachments/606848879517892620/1107346322861867150/0514.mp4
+
+
