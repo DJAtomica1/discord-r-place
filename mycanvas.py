@@ -55,43 +55,6 @@ class canvas(commands.Cog):
                 emb.color = int(self.ALLCOLORS[colors], 16)
                 emb.title = f"{ctx.author.name}'s panel\npixel placed by:\n{self.namesplacement[height_axis*500 + width_axis + (2000 + 5)]}"
                 await ctx.respond(embed = emb, view = vie)
-        # else:
-        #     await ctx.respond("/place is temporarily disabled for maintances ~ DJ Atomica", delete_after=5)
-
-            
-
-    # @commands.slash_command(name="buttonscommand")
-    # async def testing(self, ctx: discord.context):
-    #     emb = discord.Embed(description="this is description")
-    #     # button1 = Button(label="move left",style=discord.ButtonStyle.green)
-    #     # button1.callback = self.movleft
-
-    #     # button2 = Button(label= "move right",style=discord.ButtonStyle.green)
-    #     # button2.callback = self.movright
-    #     # button3 = Button(label= "move up",style=discord.ButtonStyle.green)
-    #     # button3.callback = self.movup
-    #     # button4 = Button(label= "move down",style=discord.ButtonStyle.green)
-    #     # button4.callback = self.movdown
-    #     # vie = View()
-    #     # vie.add_item(button1)
-    #     # vie.add_item(button2)
-    #     # vie.add_item(button3)
-    #     # vie.add_item(button4)
-    #     vie = self.subview(outer=self, realcaller=ctx.author.id)
-    #     await ctx.respond(embed=emb, view = vie)
-    
-    # @commands.slash_command(name="fitembed")
-    # async def testing1(self, ctx: discord.context):
-    #     msg = ""
-    #     for x in range(9):
-    #         for i in range(11):
-    #             if i == 5 and x == 4:
-    #                 msg += ":star:"
-    #             else:
-    #                 msg += ":purple_square:"
-    #         msg += "\n"
-    #     emb = discord.Embed(description=msg)
-    #     await ctx.respond(embed = emb)
 
     @placepix.error
     async def buterr(self, ctx, err):
@@ -138,8 +101,7 @@ class canvas(commands.Cog):
                                 fp="imagemix/canvas.png")
             emb = discord.Embed(title=f"{ctx.user.name}, you placed your pixel!",description=f"you can place pixel again in: <t:{self.cooldowns[ctx.user.id] + 20}:R>")
             emb.set_image(url="attachment://results.png")
-            # if (self.update()):
-            #     self.save()
+            
             return [emb, fily]
     
     
@@ -191,10 +153,6 @@ class canvas(commands.Cog):
             if self.realcaller == ctx.user.id:
                 await ctx.message.delete()
 
-        # async def on_timeout(self):
-        #     print("this has been activated")
-        #     await ctx.message.delete()
-        
         async def on_timeout(self):
             try:
                 await self.message.delete()
@@ -333,7 +291,7 @@ class canvas(commands.Cog):
             self.b1 = Button(label= "corner", emoji="↖️", row=0)
             self.b2 = Button(label= "5px", emoji="⬆️", row=0)
             self.b3 = Button(label= "corner", emoji="↗️", row=0)
-            # self.closing = Button(label= "stop", row=0, style=discord.ButtonStyle.red)
+         
             self.b4 = Button(label= "5px", emoji="⬅️", row=1)
             self.b5 = Button(label= "refresh", row=1)
             self.b6 = Button(label= "5px", emoji="➡️",row=1)
@@ -345,7 +303,7 @@ class canvas(commands.Cog):
             self.b3.callback = self.cornertopright
             self.b4.callback = self.moveleft
             self.b5.callback = self.refresh
-            # self.closing = self.closedele
+            
             self.b6.callback = self.moveright
             self.b7.callback = self.cornerbottomleft
             self.b8.callback = self.movedown
@@ -353,7 +311,7 @@ class canvas(commands.Cog):
             self.add_item(self.b1)
             self.add_item(self.b2)
             self.add_item(self.b3)
-            # self.add_item(self.closing)
+    
             self.add_item(self.b4)
             self.add_item(self.b5)
             self.add_item(self.b6)
@@ -526,8 +484,7 @@ class canvas(commands.Cog):
 
 
     def getsubareaembed(self, x, y, cursor=0):
-        # if cursor == 0:
-        #     cursor = x*504 + (y + 5)
+     
         msg =""
         for j in range(x, x + 9):
             for k in range((j*500) + y, (j*500) + y + 11):
