@@ -36,7 +36,6 @@ class canvas(commands.Cog):
 
     @commands.slash_command(name="place", description="place your pixel in the canvas!")
     async def placepix(self, ctx: discord.context, colors: discord.Option(str, choices=["Red", "Yellow", "Blue", "White", "Black", "Dark Green", "Purple", "Cyan", "Orange", "Pink","Gray", "Bright Teal", "Plum", "Bright Green"], description="the available colors to pick"), width_axis: int, height_axis: int):
-        # if (ctx.user.id == 240184919827939328):
             if (width_axis > 500 or width_axis < 1) or (height_axis > 500 or height_axis < 1):
                 await ctx.respond("invalid placement! it must be in range of 1 - 500 for each axis")
             elif (not self.cooldown(ctx.author.id)):
@@ -55,12 +54,6 @@ class canvas(commands.Cog):
                 emb.color = int(self.ALLCOLORS[colors], 16)
                 emb.title = f"{ctx.author.name}'s panel\npixel placed by:\n{self.namesplacement[height_axis*500 + width_axis + (2000 + 5)]}"
                 await ctx.respond(embed = emb, view = vie)
-
-    @placepix.error
-    async def buterr(self, ctx, err):
-        print(err)
-        await ctx.respond("there has been error in our code and it has been logged to the devs!")
-
 
     def actualplace(self, ctx, colors, cursor):
             if (colors == "Red"):
@@ -459,9 +452,6 @@ class canvas(commands.Cog):
 
 
     
-        
-
-
 
     @commands.slash_command(name="placeleaderboard", description="shows the leaderboard in place")
     async def sortnsend(self, ctx):
